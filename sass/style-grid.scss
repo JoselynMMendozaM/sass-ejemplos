@@ -1,0 +1,26 @@
+//valiable
+//cantidad de columnas
+//generar w hasta 12 columnas
+$columns:12;
+$bg-color: #adcaccad;
+
+
+.grid{
+    display: grid;
+}
+
+div{
+    margin-top: 10px;
+    margin: 2px;
+    text-align: center;
+    font-size: 30px;
+    border: 1px solid black;
+    background-color: $bg-color;
+}
+//se coloca +1 porque lo genera un valor antes del colocado, y esto hhace que llegue hasta el valor deseado
+//tambien se puede colocar el porcentaje de esta manera 100%/$i ó percentage(1)/$i
+@for $i from 1 to $columns + 1{
+    .grid-#{$i}{
+        grid-template-columns: repeat($i,percentage(calc(1/$i)));
+    }
+}
